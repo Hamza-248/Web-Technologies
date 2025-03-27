@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Ticket System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #003366;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .horizontal {
+            display: flex;
+            justify-content: space-between;
+        }
+        .horizontal .input-group {
+            flex: 1;
+            margin-right: 10px;
+        }
+        .horizontal .input-group:last-child {
+            margin-right: 0;
+        }
+        button {
+            background-color: #003366;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #002244;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="step1">
+        <h2>Enter Student ID</h2>
+        <div class="input-group">
+            <label for="studentId">Student ID</label>
+            <input type="text" id="studentId">
+        </div>
+        <button onclick="fetchStudentDetails()">Create Ticket</button>
+    </div>
+    
+    <div class="container hidden" id="step2">
+        <h2>Student Ticket Generation</h2>
+        <div class="input-group">
+            <label>Ticket Number</label>
+            <input type="text" id="ticketNumber" disabled>
+        </div>
+        <div class="horizontal">
+            <div class="input-group">
+                <label>Name</label>
+                <input type="text" id="name" disabled>
+            </div>
+            <div class="input-group">
+                <label>Program</label>
+                <input type="text" id="program" disabled>
+            </div>
+            <div class="input-group">
+                <label>School</label>
+                <input type="text" id="school" disabled>
+            </div>
+            <div class="input-group">
+                <label>Advisor</label>
+                <input type="text" id="advisor" disabled>
+            </div>
+        </div>
+        <div class="input-group">
+            <label>Visit Type</label>
+            <select>
+                <option>Select</option>
+                <option>Query</option>
+                <option>Case</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>Request Category</label>
+            <select>
+                <option>Select</option>
+                <option>Financial/Fees</option>
+                <option>Registration</option>
+                <option>Grading/Exam</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>Details</label>
+            <textarea rows="4"></textarea>
+        </div>
+        <div class="input-group">
+            <label>Attachments</label>
+            <input type="file">
+        </div>
+        <div class="input-group">
+            <label>Assigned To</label>
+            <select>
+                <option>Select</option>
+                <option>ORG</option>
+                <option>PRS</option>
+                <option>OTR</option>
+                <option>OCLP</option>
+                <option>OIN</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>Urgency</label>
+            <select>
+                <option>Normal</option>
+                <option>Urgent (3 days)</option>
+            </select>
+        </div>
+        <button>Submit</button>
+    </div>
+
+    <script>
+        function fetchStudentDetails() {
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+            document.getElementById('ticketNumber').value = "TCK12345";
+            document.getElementById('name').value = "John Doe";
+            document.getElementById('program').value = "Computer Science";
+            document.getElementById('school').value = "Engineering";
+            document.getElementById('advisor').value = "Dr. Smith";
+        }
+    </script>
+</body>
+</html>
